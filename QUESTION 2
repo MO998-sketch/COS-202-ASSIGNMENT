@@ -1,0 +1,72 @@
+print("======================================")
+print("     MY PERSONAL CGPA CALCULATOR")
+print("======================================")
+
+totalCourses = int(input("How many courses do you want to enter? "))
+
+sumUnits = 0
+sumPoints = 0
+count = 1
+
+while count <= totalCourses:
+
+    print("\nCourse", count)
+
+    title = input("Course Title: ")
+    units = int(input("Credit Unit: "))
+    score = int(input("Exam Score (0-100): "))
+
+    if score >= 70:
+        grade = "A"
+        point = 5
+
+    elif score >= 60:
+        grade = "B"
+        point = 4
+
+    elif score >= 50:
+        grade = "C"
+        point = 3
+
+    elif score >= 45:
+        grade = "D"
+        point = 2
+
+    elif score >= 40:
+        grade = "E"
+        point = 1
+
+    else:
+        grade = "F"
+        point = 0
+
+    print("Grade:", grade)
+
+    sumUnits = sumUnits + units
+    sumPoints = sumPoints + (units * point)
+
+    count += 1
+
+cgpa = sumPoints / sumUnits
+
+print("\n================================")
+print("SUMMARY")
+print("================================")
+print("Total Credit Units :", sumUnits)
+print("Total Grade Points :", sumPoints)
+print("Final CGPA :", round(cgpa,2))
+
+if cgpa >= 4.50:
+    print("Performance: FIRST CLASS")
+
+elif cgpa >= 3.50:
+    print("Performance: SECOND CLASS UPPER")
+
+elif cgpa >= 2.40:
+    print("Performance: SECOND CLASS LOWER")
+
+elif cgpa >= 1.50:
+    print("Performance: THIRD CLASS")
+
+else:
+    print("Performance: PASS/FAIL")
